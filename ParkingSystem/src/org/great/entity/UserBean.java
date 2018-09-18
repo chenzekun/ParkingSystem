@@ -15,5 +15,6 @@ package org.great.entity;
  */
 public class UserBean
 {
+	private String test;//测试
 	private String userName;
 }
