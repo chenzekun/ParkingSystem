@@ -15,5 +15,5 @@ package org.great.entity;
  */
 public class UserBean
 {
-
+	private String userName;
 }
