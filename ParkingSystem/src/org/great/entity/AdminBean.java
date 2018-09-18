@@ -10,7 +10,7 @@ public class AdminBean {
 	private String adminAddr;//住址
 	private String adminIDCard;//身份证
 	private String adminState;//后台用户状态
-	private String adminRegTime;//注册时间
+	private String adminRegTime;//注册时间 
 	public AdminBean() {
 		
 	}
