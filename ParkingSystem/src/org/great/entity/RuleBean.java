@@ -1,4 +1,7 @@
 package org.great.entity;
+
+import org.springframework.stereotype.Component;
+
 /**
  * 
  * @ClassName: RuleBean 
@@ -8,6 +11,7 @@ package org.great.entity;
  */
 
 //规则表
+@Component
 public class RuleBean {
 private String	ruleId;//	规则ID
 private String	parkTime;//	停车时间

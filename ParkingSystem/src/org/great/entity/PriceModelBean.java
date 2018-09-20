@@ -1,4 +1,7 @@
 package org.great.entity;
+
+import org.springframework.stereotype.Component;
+
 /**
  * 
  * @ClassName: PriceModelBean 
@@ -8,6 +11,7 @@ package org.great.entity;
  */
 
 //套餐表
+@Component
 public class PriceModelBean {
 private String priceId;//套餐ID
 private String  priceDate;//套餐月份

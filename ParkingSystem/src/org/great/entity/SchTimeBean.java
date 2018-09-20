@@ -1,4 +1,7 @@
 package org.great.entity;
+
+import org.springframework.stereotype.Component;
+
 /**
  * 
  * @ClassName: SchTimeBean 
@@ -6,6 +9,7 @@ package org.great.entity;
  * @author: WangCaiHui(王财辉)Jack
  * @date: 2018年9月18日 下午3:05:16
  */
+@Component
 //排班时段表
 public class SchTimeBean {
 private String	schId;//	排班ID

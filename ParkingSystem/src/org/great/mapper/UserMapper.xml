@@ -1,1 +1,62 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN" 
+"http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+<mapper namespace="org.great.mapper.UserMapper">
+	<!-- 前台登录 -->
+	<select id="userLogin"
+		parameterType="org.great.entity.UserBean"
+		resultType="org.great.entity.UserBean">
+		select * from user_tbl where userTel=#{userTel} and
+		userPwd=#{userPwd}
+	</select>
+
+	<!-- 前台注册 -->
+	<insert id="userRegister"  parameterType="org.great.entity.UserBean">INSERT 
+		INTO user_tbl(userId,userPwd,userName,userSex,userHead,userTel,userEmail,userIDCard,userState,userRegTime) 
+		VALUES(seq_user.nextVal,
+		#{userPwd,jdbcType=VARCHAR},
+		#{userName,jdbcType=VARCHAR},
+		#{userSex,jdbcType=VARCHAR},
+		'img',
+		#{userTel,jdbcType=NUMERIC},
+		#{userEmail,jdbcType=VARCHAR},
+		#{userIDCard,jdbcType=VARCHAR},
+		'15',
+		(select to_char(sysdate,'yyyy-mm-dd hh24:mi:ss') from dual) ) </insert>
+
+	<!-- 注册添加车辆信息表 -->
+
+	<!-- <insert id="vehicleIncrease" parameterType="org.great.entity.CarBean" 
+		> INSERT INTO CAR_TBL(CARID,CARPLATE)VALUES(SEQ_USER.NEXTVAL,#{carPlate}) 
+		</insert> -->
+		
+	<!-- 查询刚注册的userid -->
+	<select id="userMaximum"  parameterType="org.great.entity.UserBean"
+	resultType="org.great.entity.UserBean">
+	SELECT * FROM user_tbl WHERE USERTEL = #{userTel}</select>	
+		
+	<!-- 添加车辆用户关系表 -->
+	<insert id="userVehicleRelationship"
+	 parameterType="java.lang.String" >INSERT INTO user_plate_relation(USERID)VALUES(#{userId,jdbcType=NUMERIC})</insert>
+
+	<!-- 注册查重 -->
+	<select id="checkUser" parameterType="java.lang.String" 
+	resultType="org.great.entity.UserBean"> select * from user_tbl 
+		where usertel=#{userTel} </select>
+
+	<!-- 用户查询车辆展示列表 -->
+	<!-- <select id="userVehicle" parameterType="java.lang.String"
+	resultType="java.util.List" >SELECT * FROM (SELECT
+		CT.CARPLATE,CT.CARROLE,CT.CARSTARTDATE,CT.CARPARKSTATE,
+		US.USERNAME,PAR1.PARAMNAME CARROLE,PAR2.PARAMNAME carParkState, UPR.*
+		FROM USER_PLATE_RELATION UPR,
+		CAR_TBL CT,USER_TBL US,PARAMETER_TBL PAR1,PARAMETER_TBL PAR2 WHERE
+		UPR.USERID=US.USERID AND UPR.CARID=CT.CARID
+		AND PAR1.PARAMID=CT.carRole and PAR2.PARAMID=CT.carParkState) where
+		userid=#{userid}
+	</select>
+	 -->
+	
+	
+
+</mapper>

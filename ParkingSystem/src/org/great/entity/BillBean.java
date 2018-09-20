@@ -1,4 +1,7 @@
 package org.great.entity;
+
+import org.springframework.stereotype.Component;
+
 /**
  * 
  * @ClassName: BillBean 
@@ -8,6 +11,7 @@ package org.great.entity;
  */
 
 //账单记录表
+@Component
 public class BillBean {
 public String	billId;//	账单ID
 public String	carId;//车牌ID

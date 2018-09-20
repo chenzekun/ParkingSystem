@@ -1,28 +1,28 @@
 /**   
  * Copyright © 2018 传一科技.
  * 
- * @Package: org.great.mapper 
+ * @Package: org.great.biz 
  * @author: JX180301_赖麒峰(Ryan)   
- * @date: 2018年9月18日 上午11:22:49 
+ * @date: 2018年9月18日 上午11:17:54 
  */
-package org.great.mapper;
+package org.great.biz;
+
 import java.util.List;
 
 import org.great.entity.CarBean;
 import org.great.entity.UserBean;
-import org.springframework.stereotype.Repository;
 
-/**
- * @ClassName: UserMapper
+
+/** 
+ * @ClassName: IUserBiz 
  * @Description: TODO
- * @author: JX180301_赖麒峰(Ryan)
- * @date: 2018年9月18日 上午11:22:49
+ * @author: JX180301_赖麒峰(Ryan)  
+ * @date: 2018年9月18日 上午11:17:54  
  */
-@Repository
-public interface UserMapper {
-	// 1，前台登录
+public interface UserBiz{
+	
+	//1，前台登录
 	public UserBean userLogin(UserBean userBean);
-
 	// 2，前台注册
 	public int userRegister(UserBean userBean);
 
@@ -40,5 +40,10 @@ public interface UserMapper {
 	
 	//7,用户最大值
 	public UserBean userMaximum(String userTel);
+	
+
+		
+
+
 
 }

@@ -1,5 +1,7 @@
 package org.great.entity;
 
+import org.springframework.stereotype.Component;
+
 /**
  * 
  * @ClassName: UserBean 
@@ -8,8 +10,8 @@ package org.great.entity;
  * @date: 2018年9月18日 下午2:48:47
  */
 //用户Bean
+@Component
 public class UserBean {
-
 	private String userId;// 用户ID
 	private String userPwd;// 密码
 	private String userName;// 姓名
